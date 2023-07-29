@@ -11,25 +11,25 @@ spring:
 #    username: sa
 #    password:
 #    driver-class-name: org.h2.Driver
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://hisujung-db.cuidqegkqifp.ap-northeast-2.rds.amazonaws.com:3306/hisujungDB?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
-    username: admin
-    password: hisujung
-
-  jpa:
-    hibernate:
-      ddl-auto: create
-    properties:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://hisujung-db.cuidqegkqifp.ap-northeast-2.rds.amazonaws.com:3306/hisujungDB?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+#    username: admin
+#    password: hisujung
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create
+#    properties:
+##      hibernate:
+##        show_sql: true
+##        format_sql: true
+#      database: mysql
 #      hibernate:
-#        show_sql: true
-#        format_sql: true
-      database: mysql
-      hibernate:
-        ddl-auto: create
-      properties:
-        hibernate:
-          show_sql: true
-          format_sql: true
+#        ddl-auto: create
+#      properties:
+#        hibernate:
+#          show_sql: true
+#          format_sql: true
 
   redis:
     host: 3.39.104.119
