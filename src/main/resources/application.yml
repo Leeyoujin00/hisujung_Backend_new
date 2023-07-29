@@ -20,16 +20,16 @@ spring:
     hibernate:
       ddl-auto: create
     properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
+      database: mysql
       hibernate:
-        show_sql: true
-        format_sql: true
-  #    database: mysql
-  #    hibernate:
-  #      ddl-auto: create
-  #    properties:
-  #      hibernate:
-  #        show_sql: true
-  #        format_sql: true
+        ddl-auto: create
+      properties:
+        hibernate:
+          show_sql: true
+          format_sql: true
 
   redis:
     host: 3.39.104.119
