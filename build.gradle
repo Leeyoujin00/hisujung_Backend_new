@@ -55,11 +55,13 @@ dependencies {
 	implementation 'com.sun.xml.bind:jaxb-impl:4.0.1'
 	implementation 'com.sun.xml.bind:jaxb-core:4.0.1'
 
-	implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.0.33'
+//	implementation group: 'com.mysql', name: 'mysql-connector-j', version: '8.0.33'
+	implementation 'mysql:mysql-connector-java:8.0.33'
 
 	compileOnly 'org.projectlombok:lombok'
 	//runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'mysql:mysql-connector-java'
+
 
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
