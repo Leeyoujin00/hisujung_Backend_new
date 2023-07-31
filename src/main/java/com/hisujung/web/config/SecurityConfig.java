@@ -71,6 +71,7 @@ public class SecurityConfig {
                 .requestMatchers("/member/join/mailConfirm").permitAll()
                 .requestMatchers("/member/join/verify/*").permitAll()
                 .requestMatchers("/").permitAll()
+                .requestMatchers("/swagger-ui.html/ ").permitAll()
                 .requestMatchers("/member").hasRole("USER")
                 .anyRequest().authenticated()
                 .and()
