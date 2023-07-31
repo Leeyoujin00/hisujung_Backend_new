@@ -2,10 +2,12 @@ package com.hisujung.web.controller;
 
 
 import com.hisujung.web.dto.MemberSignupRequestDto;
-import com.hisujung.web.service.EmailService;
+import com.hisujung.web.mail.MailSender;
 import com.hisujung.web.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -15,10 +17,13 @@ import java.util.Map;
 @RequiredArgsConstructor
 @RequestMapping("/member")
 public class MemberApiController {
+    @Autowired
+    private Environment env;
 
     private final MemberService memberService;
 //    private final MemberServicelmpl memberServicelmpl;
-    private final EmailService emailService;
+    //private final EmailService emailService;
+    private final MailSender mailSender;
 
     @PostMapping("/join")
     public Long join(@RequestBody MemberSignupRequestDto requestDto) throws Exception {
@@ -29,7 +34,7 @@ public class MemberApiController {
     @PostMapping("/join/mailConfirm")
     @ResponseBody
     public String mailConfirm(@RequestParam String email) throws Exception {
-        String code = emailService.sendSimpleMessage(email);
+        String code = mailSender.send(email);
         log.info("인증코드 : " + code);
         return code;
     }
@@ -38,7 +43,7 @@ public class MemberApiController {
     public String getVerify(@PathVariable String key) {
         String message;
         try {
-            emailService.verifyEmail(key);
+            mailSender.verifyEmail(key);
             message = "인증에 성공하였습니다.";
         } catch (Exception e) {
             message = "인증에 실패하였습니다.";

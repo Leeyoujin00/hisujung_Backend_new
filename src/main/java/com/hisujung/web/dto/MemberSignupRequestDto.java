@@ -29,6 +29,10 @@ public class MemberSignupRequestDto {
 
     private String checkedPassword;
 
+    private String department1;
+
+    private String department2;
+
     private Role role;
 
 
@@ -38,6 +42,8 @@ public class MemberSignupRequestDto {
                 .email(email)
                 .userName(userName)
                 .password(password)
+                .department1(department1)
+                .department2(department2)
                 .role(Role.USER)
                 .build();
     }

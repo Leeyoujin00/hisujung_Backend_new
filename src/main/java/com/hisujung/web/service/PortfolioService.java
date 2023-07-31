@@ -1,5 +1,6 @@
 package com.hisujung.web.service;
 
+import com.hisujung.web.dto.PortfolioListResponseDto;
 import com.hisujung.web.dto.PortfolioResponseDto;
 import com.hisujung.web.dto.PortfolioSaveRequestDto;
 import com.hisujung.web.dto.PortfolioUpdateRequestDto;
@@ -10,6 +11,9 @@ import com.hisujung.web.jpa.PortfolioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -40,5 +44,10 @@ public class PortfolioService {
         Portfolio entity = portfolioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 포트폴리오가 없습니다. id" + id));
 
         return new PortfolioResponseDto(entity);
+    }
+
+    @Transactional(readOnly = true)
+    public List<PortfolioListResponseDto> findAllDescByMember(Long memberId) {
+        return portfolioRepository.findAllDesc(memberId).stream().map(PortfolioListResponseDto::new).collect(Collectors.toList());
     }
 }

@@ -63,7 +63,7 @@ public class MemberServicelmpl implements MemberService{
         return jwtTokenProvider.createToken(member.getUsername(), roles);
     }
 
-    private final MailService mailService;
+   // private final MailService mailService;
     private final RedisService redisService;
 
 //    @Value("${spring.mail.auth-code-expiration-millis}")

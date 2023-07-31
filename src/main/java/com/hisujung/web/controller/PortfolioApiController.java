@@ -1,10 +1,13 @@
 package com.hisujung.web.controller;
 
+import com.hisujung.web.annotation.LoginUser;
 import com.hisujung.web.dto.PortfolioResponseDto;
 import com.hisujung.web.dto.PortfolioSaveRequestDto;
 import com.hisujung.web.dto.PortfolioUpdateRequestDto;
+import com.hisujung.web.entity.SessionUser;
 import com.hisujung.web.service.PortfolioService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
@@ -28,4 +31,18 @@ public class PortfolioApiController {
     public PortfolioResponseDto findById(@PathVariable Long id) {
         return portfolioService.findById(id);
     }
+
+    @GetMapping("member/portfoliolist")
+    public String findMemberPortfolioList(@LoginUser SessionUser user, Model model){
+        model.addAttribute("portfolios", portfolioService.findAllDescByMember(user.getId()));
+
+        if(user != null) {
+            model.addAttribute("userName", user.getUserName());
+        }
+
+        String a = "ok";
+
+        return "a";
+    }
+
 }

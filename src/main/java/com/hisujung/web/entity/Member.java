@@ -5,6 +5,9 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -23,8 +26,15 @@ public class Member extends BaseTimeEntity {
 
     private String password;
 
+    private String department1;
+
+    private String department2;
+
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "member")
+    private List<Portfolio> portfolioList = new ArrayList<>();
 
     public boolean checkPassword(PasswordEncoder passwordEncoder, String inputPassword) {
         return passwordEncoder.matches(inputPassword, this.password);

@@ -49,7 +49,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 	implementation 'javax.mail:javax.mail-api:1.6.2'
 
-	//implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	//implementation 'com.amazonaws:aws-java-sdk-ses:1.12.408'
+	// Bill Of Materials (bom) 추가
+	// https://mvnrepository.com/artifact/software.amazon.awssdk/bom
+	implementation platform('software.amazon.awssdk:bom:2.17.230')
+	// AWS ses 추가
+	implementation 'software.amazon.awssdk:ses'
+
+
 
 	// com.sun.xml.bind
 	implementation 'com.sun.xml.bind:jaxb-impl:4.0.1'
