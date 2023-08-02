@@ -48,6 +48,7 @@ public class PortfolioService {
 
     @Transactional(readOnly = true)
     public List<PortfolioListResponseDto> findAllDescByMember(Long memberId) {
-        return portfolioRepository.findAllDesc(memberId).stream().map(PortfolioListResponseDto::new).collect(Collectors.toList());
+        Member member = memberRepository.findById(memberId).orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다. id" + memberId));
+        return portfolioRepository.findByMember(member).stream().map(PortfolioListResponseDto::new).collect(Collectors.toList());
     }
 }

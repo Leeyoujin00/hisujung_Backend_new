@@ -1,5 +1,6 @@
 package com.hisujung.web.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.hisujung.web.BaseTimeEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -33,6 +34,7 @@ public class Member extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "member")
     private List<Portfolio> portfolioList = new ArrayList<>();
 
