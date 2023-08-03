@@ -9,6 +9,8 @@ public class SessionUser implements Serializable {
     private String userName;
     private String email;
     private String password;
+    private String department1;
+    private String department2;
     private Role role;
 
     public SessionUser(Member member) {
