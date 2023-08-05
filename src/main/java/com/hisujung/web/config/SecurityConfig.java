@@ -1,10 +1,13 @@
 package com.hisujung.web.config;
 
-import com.hisujung.web.jwt.JwtAuthenticationFilter;
-import com.hisujung.web.jwt.JwtTokenProvider;
-import org.hibernate.validator.internal.util.stereotypes.Lazy;
+import com.hisujung.web.entity.Role;
+import com.hisujung.web.jwt.JwtTokenFilter;
+import com.hisujung.web.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -17,11 +20,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
-    @Lazy
-    private final JwtTokenProvider jwtTokenProvider;
 
-    public SecurityConfig(JwtTokenProvider jwtTokenProvider) {
-        this.jwtTokenProvider = jwtTokenProvider;
+    private final UserService userService;
+    @Value("${jwt.secret}")
+    private String secretKey;
+
+    @Autowired
+    public SecurityConfig(@Lazy UserService userService) {
+        this.userService = userService;
     }
 
 
@@ -63,11 +69,14 @@ public class SecurityConfig {
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
+                .addFilterBefore(new JwtTokenFilter(userService, secretKey), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests()
                 .requestMatchers("/portfolio/**").permitAll()
-                .requestMatchers("/portfolio/list/*").permitAll()
+                .requestMatchers("/portfolio/portfoliolist").permitAll()
+                .requestMatchers("/portfolio/portfoliolist").authenticated()
                 .requestMatchers("/hello").permitAll()
                 .requestMatchers("/member/login").permitAll()
+                .requestMatchers("/member/info").permitAll()
                 .requestMatchers("/member/join").permitAll()
                 .requestMatchers("/member/join/mailConfirm").permitAll()
                 .requestMatchers("/member/join/verify/*").permitAll()
@@ -78,9 +87,12 @@ public class SecurityConfig {
                 //.requestMatchers("/**/*").permitAll()
                 .requestMatchers("/swagger-ui/index.html/* ").permitAll()
                 .requestMatchers("/member").hasRole("USER")
-                .anyRequest().authenticated()
-                .and()
-                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
+                .requestMatchers("/member/info").authenticated()
+                .requestMatchers("/admin/**").hasAuthority(Role.ADMIN.name())
+                .anyRequest().authenticated();
+                //.and()
+                //.addFilterBefore(new JwtTokenFilter(userService, secretKey), UsernamePasswordAuthenticationFilter.class);
+                //.addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 

@@ -2,6 +2,7 @@ package com.hisujung.web.service;
 
 import com.hisujung.web.dto.LikeUnivActRequestDto;
 import com.hisujung.web.dto.UnivActListResponseDto;
+import com.hisujung.web.entity.LikeUnivAct;
 import com.hisujung.web.entity.Member;
 import com.hisujung.web.entity.UnivActivity;
 import com.hisujung.web.jpa.LikeUnivActRepository;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -58,6 +60,24 @@ public class UnivActService {
                 .univActivity(a)
                 .build();
         return likeUnivActRepository.save(dto.toEntity()).getId();
+    }
+
+    @Transactional
+    //교내 공지사항 좋아요 취소
+    public void deleteLike(Long id) {
+        LikeUnivAct likeUnivAct = likeUnivActRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(("해당 좋아요 항목이 없습니다.")));
+        likeUnivActRepository.delete(likeUnivAct);
+    }
+
+    //회원의 교내 공지사항 좋아요 목록 조회
+    public List<UnivActListResponseDto> findByUser(Member member) {
+        List<LikeUnivAct> likeList = likeUnivActRepository.findByMember(member);
+        List<UnivActListResponseDto> resultList = new ArrayList<>();
+        for(LikeUnivAct a: likeList) {
+            UnivActivity u = a.getUnivActivity();
+            resultList.add(new UnivActListResponseDto(u));
+        }
+        return resultList;
     }
 
 }

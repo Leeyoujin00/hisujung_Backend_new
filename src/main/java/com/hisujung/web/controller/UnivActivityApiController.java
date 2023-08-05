@@ -52,4 +52,17 @@ public class UnivActivityApiController {
         return univActService.saveLike(actId, m);
     }
 
+    //교내 공지사항 좋아요 취소
+    @DeleteMapping(value = {"/{id}", "/{department}/{id}", "/{keyword}/{id}", "/{department}/{keyword}/{id}", "/likelist/{id}"})
+    public Long deleteLike(@PathVariable("id") Long id) {
+        univActService.deleteLike(id);
+        return id;
+    }
+
+    //회원의 교내 공지사항 좋아요 목록
+    @GetMapping("/likelist")
+    public List<UnivActListResponseDto> findByUser(@LoginUser SessionUser user) {
+        Member m = basicMemberService.findById(user.getId());
+        return univActService.findByUser(m);
+    }
 }

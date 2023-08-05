@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -29,6 +31,9 @@ public class UnivActivity extends BaseTimeEntity {
 
     @Column(columnDefinition = "TEXT")
     private String content;
+
+    @OneToMany(mappedBy = "univActivity", cascade = CascadeType.PERSIST)
+    private List<LikeUnivAct> likeList = new ArrayList<>();
 
 
     @Builder

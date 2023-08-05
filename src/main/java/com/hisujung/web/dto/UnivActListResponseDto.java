@@ -27,4 +27,5 @@ public class UnivActListResponseDto {
         //this.deadline = entity.getDeadline();
         this.content = entity.getContent();
     }
+
 }

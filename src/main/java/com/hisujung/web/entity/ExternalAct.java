@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -32,6 +33,9 @@ public class ExternalAct extends BaseTimeEntity {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime deadline;
+    
+    @OneToMany(mappedBy = "activity", cascade = CascadeType.PERSIST)
+    private List<LikeExternalAct> likeList;
 
     @Builder
     public ExternalAct(String title, String info, String link, LocalDateTime startDate, LocalDateTime deadline, String content) {

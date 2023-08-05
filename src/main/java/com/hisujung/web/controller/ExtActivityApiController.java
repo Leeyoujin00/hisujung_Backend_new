@@ -40,4 +40,16 @@ public class ExtActivityApiController {
     }
 
     //대외활동 좋아요 삭제
+    @DeleteMapping(value = {"/{id}", "/{keyword}/{id}", "/likelist{id}"})
+    public Long deleteLike(@PathVariable("id") Long id) {
+        extActService.deleteLike(id);
+        return id;
+    }
+
+    //회원의 대외활동 좋아요 리스트 조회
+    @GetMapping("/likelist")
+    public List<ExtActListResponseDto> findByMember(@LoginUser SessionUser user) {
+        Member m = basicMemberService.findById(user.getId());
+        return extActService.findByUser(m);
+    }
 }

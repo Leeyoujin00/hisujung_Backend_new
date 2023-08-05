@@ -51,4 +51,10 @@ public class PortfolioService {
         Member member = memberRepository.findById(memberId).orElseThrow(() -> new IllegalArgumentException("해당 회원이 없습니다. id" + memberId));
         return portfolioRepository.findByMember(member).stream().map(PortfolioListResponseDto::new).collect(Collectors.toList());
     }
+
+    @Transactional
+    public void delete(Long id) {
+        Portfolio portfolio = portfolioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 포트폴리오가 없습니다. id = " + id));
+        portfolioRepository.delete(portfolio);
+    }
 }

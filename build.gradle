@@ -59,6 +59,8 @@ dependencies {
 	implementation 'software.amazon.awssdk:ses'
 
 
+	// JWT Token
+	implementation 'io.jsonwebtoken:jjwt'
 
 	// com.sun.xml.bind
 	implementation 'com.sun.xml.bind:jaxb-impl:4.0.1'
