@@ -6,7 +6,6 @@ import com.hisujung.web.entity.Member;
 import com.hisujung.web.exception.BusinessLogicException;
 import com.hisujung.web.exception.ExceptionCode;
 import com.hisujung.web.jpa.MemberRepository;
-import com.hisujung.web.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,8 +23,7 @@ import java.util.*;
 public class MemberServicelmpl implements MemberService{
 
     private final MemberRepository memberRepository;
-    private final PasswordEncoder passwordEncoder;
-    private final JwtTokenProvider jwtTokenProvider;
+    private final PasswordEncoder passwordEncoder;;
 
     @Transactional
     @Override
@@ -46,22 +44,22 @@ public class MemberServicelmpl implements MemberService{
         return member.getId();
     }
 
-    @Override
-    public String login(Map<String, String> members) {
-
-        Member member = memberRepository.findByEmail(members.get("email"))
-                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 Email 입니다."));
-
-        String password = members.get("password");
-        if (!member.checkPassword(passwordEncoder, password)) {
-            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
-        }
-
-        List<String> roles = new ArrayList<>();
-        roles.add(member.getRole().name());
-
-        return jwtTokenProvider.createToken(member.getUsername(), roles);
-    }
+//    @Override
+//    public String login(Map<String, String> members) {
+//
+//        Member member = memberRepository.findByEmail(members.get("email"))
+//                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 Email 입니다."));
+//
+//        String password = members.get("password");
+//        if (!member.checkPassword(passwordEncoder, password)) {
+//            throw new IllegalArgumentException("잘못된 비밀번호입니다.");
+//        }
+//
+//        List<String> roles = new ArrayList<>();
+//        roles.add(member.getRole().name());
+//
+//        return jwtTokenProvider.createToken(member.getUsername(), roles);
+//    }
 
    // private final MailService mailService;
     private final RedisService redisService;
