@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
-@Builder
 @Entity
 public class Member extends BaseTimeEntity {
 
@@ -50,6 +49,15 @@ public class Member extends BaseTimeEntity {
 
     public void encodePassword(PasswordEncoder passwordEncoder) {
         this.password = passwordEncoder.encode(password);
+    }
+
+    @Builder
+    public Member(String email, String userName, String password, String department1, String department2) {
+        this.email = email;
+        this.userName = userName;
+        this.password = password;
+        this.department1 = department1;
+        this.department2 = department2;
     }
 }
 //
