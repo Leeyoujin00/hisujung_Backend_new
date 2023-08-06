@@ -23,25 +23,25 @@ public class UnivActivity extends BaseTimeEntity {
 
     private String postDepartment;
 
+    //올라온 날짜
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime startDate;
 
 //    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 //    private LocalDateTime deadline;
 
-    @Column(columnDefinition = "TEXT")
-    private String content;
+    private String link;
 
     @OneToMany(mappedBy = "univActivity", cascade = CascadeType.PERSIST)
     private List<LikeUnivAct> likeList = new ArrayList<>();
 
 
     @Builder
-    public UnivActivity(String title, String postDepartment, LocalDateTime startDate, String content) {
+    public UnivActivity(String title, String postDepartment, LocalDateTime startDate, String link) {
         this.title = title;
         this.postDepartment = postDepartment;
         this.startDate = startDate;
         //this.deadline = deadline;
-        this.content = content;
+        this.link = link;
     }
 }
