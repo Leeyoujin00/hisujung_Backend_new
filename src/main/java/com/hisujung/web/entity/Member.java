@@ -52,12 +52,13 @@ public class Member extends BaseTimeEntity {
     }
 
     @Builder
-    public Member(String email, String userName, String password, String department1, String department2) {
+    public Member(String email, String userName, String password, String department1, String department2, Role role) {
         this.email = email;
         this.userName = userName;
         this.password = password;
         this.department1 = department1;
         this.department2 = department2;
+        this.role = role;
     }
 }
 //
