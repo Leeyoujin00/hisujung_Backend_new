@@ -32,7 +32,7 @@ public class UnivActivity extends BaseTimeEntity {
 
     private String link;
 
-    @OneToMany(mappedBy = "univActivity", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "univActivity", cascade = CascadeType.ALL)
     private List<LikeUnivAct> likeList = new ArrayList<>();
 
 

@@ -26,7 +26,10 @@ public class PortfolioApiController {
 
     //회원의 포트폴리오 생성
     @PostMapping("/new")
-    public Long save(@RequestBody PortfolioSaveRequestDto requestDto) { //dto에 멤버id 포함해 보내도록 함
+    public Long save(@RequestBody PortfolioSaveRequestDto requestDto, Authentication auth) {
+
+        Member m = userService.getLoginUserByLoginId(auth.getName());
+        requestDto.setMemberId(m.getId());
 
         return portfolioService.save(requestDto);
     }

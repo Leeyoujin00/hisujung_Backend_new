@@ -48,8 +48,9 @@ public class ExtActService {
 
     @Transactional
     //대외활동 좋아요 취소
-    public void deleteLike(Long id) {
-        LikeExternalAct likeExternalAct = likeExternalActRepository.findById(id).orElseThrow(() -> new IllegalArgumentException(("해당 좋아요 항목이 없습니다.")));
+    public void deleteLike(Member m, Long id) {
+        ExternalAct e = externalActRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("해당 대외활동 정보를 조회할 수 없습니다."));
+        LikeExternalAct likeExternalAct = likeExternalActRepository.findByMemberAndAct(m,e).orElseThrow(() -> new IllegalArgumentException(("해당 좋아요 항목이 없습니다.")));
         likeExternalActRepository.delete(likeExternalAct);
     }
 

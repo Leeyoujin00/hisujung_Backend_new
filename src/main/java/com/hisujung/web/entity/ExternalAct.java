@@ -34,7 +34,7 @@ public class ExternalAct extends BaseTimeEntity {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime deadline;
     
-    @OneToMany(mappedBy = "activity", cascade = CascadeType.PERSIST)
+    @OneToMany(mappedBy = "activity", cascade = CascadeType.ALL)
     private List<LikeExternalAct> likeList;
 
     @Builder

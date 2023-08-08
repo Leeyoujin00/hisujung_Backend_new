@@ -40,7 +40,7 @@ public class MemberApiController {
 
     @PostMapping("/join/mailConfirm")
     @ResponseBody
-    public String mailConfirm(@RequestParam String email) throws Exception {
+    public String mailConfirm(@RequestBody String email) throws Exception {
         String code = mailSender.send(email);
         log.info("인증코드 : " + code);
         return code;
@@ -100,6 +100,7 @@ public class MemberApiController {
     @GetMapping("info")
     public String userInfo(Authentication auth) {
 
+        //로그인id는 사용자의 이메일
         Member loginUser = userService.getLoginUserByLoginId(auth.getName());
 
         return String.format("loginId : %s\nusername : %s\nrole: %s",
