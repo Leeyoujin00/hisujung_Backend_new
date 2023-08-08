@@ -27,10 +27,11 @@ public class MailSender {
     private final Environment env;
     private final RedisUtil redisUtil;
     //인증번호 생성
-    private final String ePw = createKey();
+    private String ePw = createKey();
     //private final JavaMailSender javaMailSender;
 
     public String send(String to){
+        ePw = createKey();
         log.info("Sender send() start ...");
         String host = env.getProperty("aws.ses.host");
         String port = env.getProperty("aws.ses.port");
