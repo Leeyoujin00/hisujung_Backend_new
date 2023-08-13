@@ -3,6 +3,8 @@ package com.hisujung.web.dto;
 import com.hisujung.web.entity.Portfolio;
 import lombok.Getter;
 
+import java.time.LocalDateTime;
+
 @Getter
 public class PortfolioResponseDto {
 
@@ -10,11 +12,15 @@ public class PortfolioResponseDto {
     private String title;
     private String urlLink;
     private String description;
+    private LocalDateTime createdDate;
+    private LocalDateTime modifiedDate;
 
     public PortfolioResponseDto(Portfolio entity) {
         this.id = entity.getId();
         this.title = entity.getTitle();
         this.urlLink = entity.getUrlLink();
         this.description = entity.getDescription();
+        this.createdDate = entity.getCreatedDate();
+        this.modifiedDate = entity.getModifiedDate();
     }
 }

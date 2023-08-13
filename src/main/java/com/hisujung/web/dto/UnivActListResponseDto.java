@@ -14,9 +14,6 @@ public class UnivActListResponseDto {
     private String postDepartment;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime startDate;
-//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
-//    private LocalDateTime deadline;
-
     private String link;
 
     public UnivActListResponseDto(UnivActivity entity) {
@@ -24,7 +21,6 @@ public class UnivActListResponseDto {
         this.title = entity.getTitle();
         this.postDepartment = entity.getPostDepartment();
         this.startDate = entity.getStartDate();
-        //this.deadline = entity.getDeadline();
         this.link = entity.getLink();
     }
 

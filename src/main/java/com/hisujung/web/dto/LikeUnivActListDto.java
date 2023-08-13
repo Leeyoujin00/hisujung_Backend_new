@@ -11,6 +11,7 @@ public class LikeUnivActListDto {
     Member member;
     UnivActivity univActivity;
 
+
     public LikeUnivActListDto(LikeUnivAct entity) {
         this.id = entity.getId();
         this.member = entity.getMember();

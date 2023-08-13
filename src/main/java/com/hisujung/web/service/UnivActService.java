@@ -37,7 +37,7 @@ public class UnivActService {
 
     //교내 공지사항 학과별로 조회
     public List<UnivActListResponseDto> findByDepartment(String department) {
-        return univActivityRepository.findByPostDepartment(department).stream().map(UnivActListResponseDto::new).collect(Collectors.toList());
+        return univActivityRepository.findByPostDepartmentContaining(department).stream().map(UnivActListResponseDto::new).collect(Collectors.toList());
     }
 
     //교내 공지사항 제목으로 조회

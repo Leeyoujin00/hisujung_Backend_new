@@ -65,4 +65,8 @@ public class ExtActService {
         return resultList;
     }
 
+    public ExtActListResponseDto findById(Long id) {
+        ExternalAct e = externalActRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 대외활동 정보가 존재하지 않습니다."));
+        return new ExtActListResponseDto(e);
+    }
 }

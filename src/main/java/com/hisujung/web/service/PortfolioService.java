@@ -24,9 +24,7 @@ public class PortfolioService {
     private final PortfolioRepository portfolioRepository;
 
     @Transactional
-    public Long save(PortfolioSaveRequestDto requestDto) {
-        Member member = memberRepository.findById(requestDto.getMemberId())
-                .orElseThrow(() -> new IllegalArgumentException("해당 유저가 존재하지 않습니다. id = " + requestDto.getMemberId()));
+    public Long save(Member member, PortfolioSaveRequestDto requestDto) {
 
         return portfolioRepository.save(requestDto.toEntity(member)).getId();
     }

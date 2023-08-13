@@ -12,14 +12,12 @@ import lombok.Setter;
 @NoArgsConstructor
 public class PortfolioSaveRequestDto {
 
-    private Long memberId;
     private String title;
     private String urlLink;
     private String description;
 
     @Builder
-    public PortfolioSaveRequestDto(Long memberId, String title, String urlLink, String description) {
-        this.memberId = memberId;
+    public PortfolioSaveRequestDto(String title, String urlLink, String description) {
         this.title = title;
         this.urlLink = urlLink;
         this.description = description;

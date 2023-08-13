@@ -89,7 +89,7 @@ public class SecurityConfig {
                 .requestMatchers("/member").hasRole("USER")
                 .requestMatchers("/member/info").authenticated()
                 .requestMatchers("/admin/**").hasAuthority(Role.ADMIN.name())
-                .anyRequest().authenticated();
+                .anyRequest().permitAll();
                 //.and()
                 //.addFilterBefore(new JwtTokenFilter(userService, secretKey), UsernamePasswordAuthenticationFilter.class);
                 //.addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
