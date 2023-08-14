@@ -119,6 +119,7 @@ public class MemberApiController {
         response.put("email", user.getEmail());
         response.put("username", user.getUsername());
 
+        log.info("hihihibye");
         return ResponseEntity.ok(response);
     }
 
