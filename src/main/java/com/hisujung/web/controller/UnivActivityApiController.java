@@ -47,7 +47,7 @@ public class UnivActivityApiController {
     }
 
     //========회원이 교내 공지사항 좋아요 눌렀을 때========
-    @PostMapping(value = {"/", "/department", "/keyword", "/department/keyword"})
+    @PostMapping("/like")
     public Long saveLike(Authentication auth, @RequestParam Long actId) {
         Member m = userService.getLoginUserByLoginId(auth.getName());
         return univActService.saveLike(actId, m);
@@ -55,12 +55,13 @@ public class UnivActivityApiController {
 
     //교내 공지사항 상세페이지 조회
     @GetMapping("/id")
-    public UnivActListResponseDto findById(@RequestParam Long actId) {
-        return univActService.findById(actId);
+    public UnivActListResponseDto findById(Authentication auth, @RequestParam Long actId) {
+        Member m = userService.getLoginUserByLoginId(auth.getName());
+        return univActService.findById(m, actId);
     }
 
     //교내 공지사항 좋아요 취소
-    @DeleteMapping(value = {"/id", "/department/id", "/keyword/id", "/department/keyword/id", "/likelist/id"})
+    @DeleteMapping("/likecancel")
     public Long deleteLike(@RequestParam Long id, Authentication auth) {
         Member m = userService.getLoginUserByLoginId(auth.getName());
 

@@ -29,10 +29,14 @@ public class UnivActService {
     }
 
     //해당되는 교내 공지사항 조회
-    public UnivActListResponseDto findById(Long id) {
+    public UnivActListResponseDto findById(Member m, Long id) {
         UnivActivity entity = univActivityRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 교내 공지사항을 찾을 수 없습니다."));
 
-        return new UnivActListResponseDto(entity);
+        if (likeUnivActRepository.findByMemberAndAct(m, entity) == null) {
+            return new UnivActListResponseDto(entity, 0); //회원이 좋아요 안 눌렀으면 0
+        }
+
+        return new UnivActListResponseDto(entity, 1); //회원이 좋아요 눌렀으면 1
     }
 
     //교내 공지사항 학과별로 조회

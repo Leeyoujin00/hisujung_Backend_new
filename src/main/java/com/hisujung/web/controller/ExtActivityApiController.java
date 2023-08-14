@@ -33,19 +33,20 @@ public class ExtActivityApiController {
     }
 
     @GetMapping("/id")
-    public ExtActListResponseDto findById(@RequestParam Long id) {
-        return extActService.findById(id);
+    public ExtActListResponseDto findById(Authentication auth, @RequestParam Long id) {
+        Member m = userService.getLoginUserByLoginId(auth.getName());
+        return extActService.findById(m, id);
     }
 
     //====== 대외활동 좋아요 눌렀을 때 =======
-    @PostMapping(value = {"/", "/keyword"})
+    @PostMapping("like")
     public Long saveLike(Authentication auth, @RequestParam Long actId) {
         Member m = userService.getLoginUserByLoginId(auth.getName());
         return extActService.saveLike(m, actId);
     }
 
     //대외활동 좋아요 삭제
-    @DeleteMapping(value = {"/id", "/keyword/id", "/likelist/id"})
+    @DeleteMapping("/likecancel")
     public Long deleteLike(Authentication auth, @RequestParam Long id) {
         Member m = userService.getLoginUserByLoginId(auth.getName());
         extActService.deleteLike(m, id);

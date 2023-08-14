@@ -14,6 +14,7 @@ public class ExtActListResponseDto {
     private String info;
     private String link;
     private String content;
+    int isLiked;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
     private LocalDateTime startDate;
@@ -29,5 +30,16 @@ public class ExtActListResponseDto {
         this.content = entity.getContent();
         this.startDate = entity.getStartDate();
         this.deadline = entity.getDeadline();
+    }
+
+    public ExtActListResponseDto(ExternalAct entity, int isLiked) {
+        this.id = entity.getId();
+        this.title = entity.getTitle();
+        this.info = entity.getInfo();
+        this.link = entity.getLink();
+        this.content = entity.getContent();
+        this.startDate = entity.getStartDate();
+        this.deadline = entity.getDeadline();
+        this.isLiked = isLiked;
     }
 }
