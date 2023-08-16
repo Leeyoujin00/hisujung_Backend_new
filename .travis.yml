@@ -36,9 +36,9 @@ notifications:
       - 'julia2039@naver.com'
 
 before_deploy:
-  - zip -r freelec-springboot3-webservice *
+  - zip -r web *
   - mkdir -p deploy
-  - mv freelec-springboot3-webservice.zip deploy/freelec-springboot3-webservice.zip
+  - mv web.zip deploy/web.zip
 
 deploy:
   - provider: s3
