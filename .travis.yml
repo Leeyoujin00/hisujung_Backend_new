@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - openjdk8
+  - openjdk17
 
 
 #travis CI를 오직 master 브랜치에 push될 때만 수행
@@ -15,12 +15,12 @@ cache:
     - '$HOME/.gradle'
 before_install:
   #  gradle 버전 변경
-  - sudo wget https://services.gradle.org/distributions/gradle-6.8-bin.zip
-  - sudo unzip -qq gradle-6.8-bin.zip
-  - export GRADLE_HOME=$PWD/gradle-6.8
-  - export PATH=$GRADLE_HOME/bin:$PATH
-  - gradle -version
-  - gradle wrap
+#  - sudo wget https://services.gradle.org/distributions/gradle-6.8-bin.zip
+#  - sudo unzip -qq gradle-6.8-bin.zip
+#  - export GRADLE_HOME=$PWD/gradle-6.8
+#  - export PATH=$GRADLE_HOME/bin:$PATH
+#  - gradle -version
+#  - gradle wrap
   - chmod +x gradlew
 
 before_script:
