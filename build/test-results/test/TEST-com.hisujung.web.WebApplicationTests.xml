@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hisujung.web.WebApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-08-16T06:31:09" hostname="DESKTOP-6STMAPO" time="0.385">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.hisujung.web.WebApplicationTests" time="0.385"/>
+  <system-out><![CDATA[15:30:51.622 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [WebApplicationTests]: using SpringBootContextLoader
+15:30:51.636 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.hisujung.web.WebApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:30:51.638 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.hisujung.web.WebApplicationTests]: WebApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:30:51.695 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [WebApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+15:30:51.887 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Project\Github\web\build\classes\java\main\com\hisujung\web\WebApplication.class]
+15:30:51.892 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.hisujung.web.WebApplication for test class com.hisujung.web.WebApplicationTests
+15:30:52.147 [Test worker] DEBUG org.springframework.test.context.util.TestContextSpringFactoriesUtils -- Could not load TestExecutionListener [org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener]. Specify custom TestExecutionListener classes or make the default TestExecutionListener classes available.
+java.lang.ExceptionInInitializerError: null
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
+	at org.springframework.core.io.support.SpringFactoriesLoader$FactoryInstantiator.instantiate(SpringFactoriesLoader.java:382)
+	at org.springframework.core.io.support.SpringFactoriesLoader.instantiateFactory(SpringFactoriesLoader.java:228)
+	at org.springframework.core.io.support.SpringFactoriesLoader.load(SpringFactoriesLoader.java:206)
+	at org.springframework.core.io.support.SpringFactoriesLoader.load(SpringFactoriesLoader.java:178)
+	at org.springframework.test.context.util.TestContextSpringFactoriesUtils.loadFactoryImplementations(TestContextSpringFactoriesUtils.java:71)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.getDefaultTestExecutionListeners(AbstractTestContextBootstrapper.java:198)
+	at org.springframework.boot.test.context.SpringBootTestContextBootstrapper.getDefaultTestExecutionListeners(SpringBootTestContextBootstrapper.java:128)
+	at org.springframework.test.context.support.AbstractTestContextBootstrapper.getTestExecutionListeners(AbstractTestContextBootstrapper.java:128)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:131)
+	at org.springframework.test.context.TestContextManager.<init>(TestContextManager.java:113)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore.lambda$getOrComputeIfAbsent$4(ExtensionValuesStore.java:86)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$MemoizingSupplier.computeValue(ExtensionValuesStore.java:223)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$MemoizingSupplier.get(ExtensionValuesStore.java:211)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$StoredValue.evaluate(ExtensionValuesStore.java:191)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore$StoredValue.access$100(ExtensionValuesStore.java:171)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore.getOrComputeIfAbsent(ExtensionValuesStore.java:89)
+	at org.junit.jupiter.engine.execution.ExtensionValuesStore.getOrComputeIfAbsent(ExtensionValuesStore.java:93)
+	at org.junit.jupiter.engine.execution.NamespaceAwareStore.getOrComputeIfAbsent(NamespaceAwareStore.java:61)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.getTestContextManager(SpringExtension.java:294)
+	at org.springframework.test.context.junit.jupiter.SpringExtension.beforeAll(SpringExtension.java:113)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllCallbacks$12(ClassBasedTestDescriptor.java:395)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllCallbacks(ClassBasedTestDescriptor.java:395)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:211)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:84)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:148)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:110)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:90)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:85)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy1/jdk.proxy1.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+Caused by: java.lang.IllegalStateException: MicrometerObservationRegistryTestExecutionListener requires micrometer-observation 1.10.8 or higher
+	at org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener.<clinit>(MicrometerObservationRegistryTestExecutionListener.java:80)
+	... 81 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: io/micrometer/context/ThreadLocalAccessor
+	at java.base/java.lang.ClassLoader.defineClass1(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1012)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:150)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:862)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassOnClassPathOrNull(BuiltinClassLoader.java:760)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClassOrNull(BuiltinClassLoader.java:681)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:639)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:467)
+	at org.springframework.test.context.observation.MicrometerObservationRegistryTestExecutionListener.<clinit>(MicrometerObservationRegistryTestExecutionListener.java:76)
+	... 81 common frames omitted
+Caused by: java.lang.ClassNotFoundException: io.micrometer.context.ThreadLocalAccessor
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520)
+	... 93 common frames omitted
+15:30:52.173 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [WebApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+15:30:52.176 [Test worker] DEBUG org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener -- Before test class: class [WebApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+?[32m :: Spring Boot :: ?[39m              ?[2m (v3.0.8)?[0;39m
+
+?[2m2023-08-16T15:30:53.099+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mcom.hisujung.web.WebApplicationTests    ?[0;39m ?[2m:?[0;39m Starting WebApplicationTests using Java 17.0.2 with PID 17812 (started by User in C:\Project\Github\web)
+?[2m2023-08-16T15:30:53.111+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mcom.hisujung.web.WebApplicationTests    ?[0;39m ?[2m:?[0;39m No active profile set, falling back to 1 default profile: "default"
+?[2m2023-08-16T15:30:54.804+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+?[2m2023-08-16T15:30:54.806+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+?[2m2023-08-16T15:30:54.852+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Finished Spring Data repository scanning in 11 ms. Found 0 Redis repository interfaces.
+?[2m2023-08-16T15:30:55.474+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+?[2m2023-08-16T15:30:55.478+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+?[2m2023-08-16T15:30:55.856+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Finished Spring Data repository scanning in 366 ms. Found 6 JPA repository interfaces.
+?[2m2023-08-16T15:30:55.870+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Multiple Spring Data modules found, entering strict repository configuration mode
+?[2m2023-08-16T15:30:55.870+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+?[2m2023-08-16T15:30:55.889+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.RepositoryConfigurationExtensionSupport?[0;39m ?[2m:?[0;39m Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hisujung.web.jpa.ExternalActRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+?[2m2023-08-16T15:30:55.890+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.RepositoryConfigurationExtensionSupport?[0;39m ?[2m:?[0;39m Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hisujung.web.jpa.LikeExternalActRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+?[2m2023-08-16T15:30:55.891+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.RepositoryConfigurationExtensionSupport?[0;39m ?[2m:?[0;39m Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hisujung.web.jpa.LikeUnivActRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+?[2m2023-08-16T15:30:55.892+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.RepositoryConfigurationExtensionSupport?[0;39m ?[2m:?[0;39m Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hisujung.web.jpa.MemberRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+?[2m2023-08-16T15:30:55.893+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.RepositoryConfigurationExtensionSupport?[0;39m ?[2m:?[0;39m Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hisujung.web.jpa.PortfolioRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+?[2m2023-08-16T15:30:55.894+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.RepositoryConfigurationExtensionSupport?[0;39m ?[2m:?[0;39m Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.hisujung.web.jpa.UnivActivityRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+?[2m2023-08-16T15:30:55.895+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.d.r.c.RepositoryConfigurationDelegate?[0;39m ?[2m:?[0;39m Finished Spring Data repository scanning in 23 ms. Found 0 Redis repository interfaces.
+?[2m2023-08-16T15:30:57.151+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.hibernate.jpa.internal.util.LogHelper ?[0;39m ?[2m:?[0;39m HHH000204: Processing PersistenceUnitInfo [name: default]
+?[2m2023-08-16T15:30:57.336+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36morg.hibernate.Version                   ?[0;39m ?[2m:?[0;39m HHH000412: Hibernate ORM core version 6.1.7.Final
+?[2m2023-08-16T15:30:58.206+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mcom.zaxxer.hikari.HikariDataSource      ?[0;39m ?[2m:?[0;39m HikariPool-1 - Starting...
+?[2m2023-08-16T15:30:58.940+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mcom.zaxxer.hikari.pool.HikariPool       ?[0;39m ?[2m:?[0;39m HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8ce3f27
+?[2m2023-08-16T15:30:58.944+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mcom.zaxxer.hikari.HikariDataSource      ?[0;39m ?[2m:?[0;39m HikariPool-1 - Start completed.
+?[2m2023-08-16T15:30:59.040+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mSQL dialect                             ?[0;39m ?[2m:?[0;39m HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+?[2m2023-08-16T15:31:01.544+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.h.e.t.j.p.i.JtaPlatformInitiator      ?[0;39m ?[2m:?[0;39m HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+?[2m2023-08-16T15:31:01.578+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mj.LocalContainerEntityManagerFactoryBean?[0;39m ?[2m:?[0;39m Initialized JPA EntityManagerFactory for persistence unit 'default'
+?[2m2023-08-16T15:31:04.671+09:00?[0;39m ?[33m WARN?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mJpaBaseConfiguration$JpaWebConfiguration?[0;39m ?[2m:?[0;39m spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+?[2m2023-08-16T15:31:04.728+09:00?[0;39m ?[33m WARN?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36m.s.s.UserDetailsServiceAutoConfiguration?[0;39m ?[2m:?[0;39m 
+
+Using generated security password: c9fbff71-5dea-4e4d-99ad-81bd8fe01e51
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+?[2m2023-08-16T15:31:05.084+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.s.b.a.w.s.WelcomePageHandlerMapping   ?[0;39m ?[2m:?[0;39m Adding welcome page: class path resource [static/index.html]
+?[2m2023-08-16T15:31:07.952+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mo.s.s.web.DefaultSecurityFilterChain    ?[0;39m ?[2m:?[0;39m Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1a5e19fe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3e7ac200, org.springframework.security.web.context.SecurityContextHolderFilter@7ef3b7ac, org.springframework.security.web.header.HeaderWriterFilter@687e9f0b, org.springframework.security.web.authentication.logout.LogoutFilter@9cdceeb, com.hisujung.web.jwt.JwtTokenFilter@222b4ab1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4dbf902, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1b7123e5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7df09f55, org.springframework.security.web.session.SessionManagementFilter@78ae9b9c, org.springframework.security.web.access.ExceptionTranslationFilter@59929512, org.springframework.security.web.access.intercept.AuthorizationFilter@3983b06d]
+?[2m2023-08-16T15:31:09.772+09:00?[0;39m ?[32m INFO?[0;39m ?[35m17812?[0;39m ?[2m---?[0;39m ?[2m[    Test worker]?[0;39m ?[36mcom.hisujung.web.WebApplicationTests    ?[0;39m ?[2m:?[0;39m Started WebApplicationTests in 17.48 seconds (process running for 20.31)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
