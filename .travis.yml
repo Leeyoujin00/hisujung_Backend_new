@@ -48,5 +48,5 @@ deploy:
     region: ap-northeast-2
     skip_cleanup: true
     acl: private #zip 파일 접근을 private으로
-    on: 
-      - all_branches: true #해당 라인 추가
+    on:
+      all_branches: true #해당 라인 추가
