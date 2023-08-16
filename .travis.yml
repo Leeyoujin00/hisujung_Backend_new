@@ -44,9 +44,13 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY #travis repo settings에 설정된 값
     secret_acccess_key: $AWS_SECRET_KEY #travis repo settings에 설정된 값
-    bucket: hisujung-service-bucket  # s3 버킷
+    bucket: hisujung-service-bucket
+    # s3 버킷
     region: ap-northeast-2
     skip_cleanup: true
     acl: private #zip 파일 접근을 private으로
+    local_dir: deploy # before_deploy에서 생성한 디렉터리
+    wait-until-deployed: true
+
     on:
       all_branches: true #해당 라인 추가
