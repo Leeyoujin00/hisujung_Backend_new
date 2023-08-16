@@ -51,6 +51,5 @@ deploy:
     acl: private #zip 파일 접근을 private으로
     local_dir: deploy # before_deploy에서 생성한 디렉터리
     wait-until-deployed: true
-
     on:
       all_branches: true #해당 라인 추가
