@@ -15,9 +15,9 @@ cache:
     - '$HOME/.gradle'
 before_install:
   #  gradle 버전 변경
-  - sudo wget https\://services.gradle.org/distributions/gradle-7.2-all.zip
-  - sudo unzip -qq gradle-7.2-all.zip
-  - export GRADLE_HOME=$PWD/gradle-7.2
+  - sudo wget https://services.gradle.org/distributions/gradle-6.8-bin.zip
+  - sudo unzip -qq gradle-6.8-bin.zip
+  - export GRADLE_HOME=$PWD/gradle-6.8
   - export PATH=$GRADLE_HOME/bin:$PATH
   - gradle -version
   - gradle wrap
