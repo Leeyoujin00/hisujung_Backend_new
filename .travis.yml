@@ -13,6 +13,8 @@ cache:
   directories:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
+before_install:
+  - chmod +x gradlew
 
 before_script:
   - chmod -R +x gradlew
