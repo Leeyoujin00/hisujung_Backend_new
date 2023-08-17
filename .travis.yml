@@ -22,14 +22,9 @@ before_script:
 #master 브랜치에 푸시되었을 때 수행하는 명령어어
 script: "./gradlew clean build"
 
-#CI 실행 완료 시 메일로 알람
-notifications:
-  email:
-    recipients:
-      - 'julia2039@naver.com'
-
 before_deploy:
   - FILE_NAME="$AWS_SECRET_KEY_Backend_new.zip"
+  - APP_NAME="$AWS_SECRET_KEY_Backend_new"
   - zip -r $FILE_NAME *
   - mkdir -p deploy
   - mv $FILE_NAME deploy/$FILE_NAME
@@ -47,3 +42,27 @@ deploy:
     wait-until-deployed: true
     on:
       all_branches: true #해당 라인 추가
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: hisujung_bucket
+    key: $FILE_NAME #빌드 파일을 압축해서 전달
+
+    bundle_type: zip #압축 확장자
+    application: $APP_NAME #웹 콘솔에서 등록한 CodeDeploy 애플리케이션
+
+    deployment_group: $APP_NAME-group #웹 콘솔에서 등록한 CodeDeploy 배포 그룹
+    region: ap-northeast-2
+    wait-until-deployed: true
+
+
+#CI 실행 완료 시 메일로 알람
+notifications:
+  email:
+    recipients:
+      - 'julia2039@naver.com'
+
+
+
+
