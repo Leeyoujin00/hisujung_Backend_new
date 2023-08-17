@@ -29,9 +29,10 @@ notifications:
       - 'julia2039@naver.com'
 
 before_deploy:
-  - zip -r $AWS_SECRET_KEY_Backend_new *
+  - FILE_NAME="$AWS_SECRET_KEY_Backend_new"
+  - zip -r $FILE_NAME *
   - mkdir -p deploy
-  - mv $AWS_SECRET_KEY_Backend_new.zip deploy/$AWS_SECRET_KEY_Backend_new.zip
+  - mv $FILE_NAME.zip deploy/$FILE_NAME.zip
 
 deploy:
   - provider: s3
